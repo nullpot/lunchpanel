@@ -77,7 +77,7 @@ foreach ((array)$obj as $key => $val) {
 $data=json_encode($result);
 header('Access-Control-Allow-Origin: *');
 header("Content-Type: application/json; charset=utf-8");
-echo $data;
+echo "[" . $data . "]";
 
 //文字列であるかをチェック
 function checkString($input)
