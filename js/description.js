@@ -59,7 +59,9 @@ function makeDetailInfo(jsonData){
 	var divDetailInfo = document.querySelector("#divDetailInfo");
 	for(var key in jsonData){
 		var divDetailInfo = document.querySelector("#divDetailInfo");
-
-		divDetailInfo.querySelector("." + key).innerHTML = jsonData[key];
+		if(key !== "restaurant_image"){
+			divDetailInfo.querySelector("." + key).innerHTML = jsonData[key];
+		}
 	}
+	document.querySelector("#divDetailPicture").style.background = "url(" + jsonData.restaurant_image + ")";
 }
