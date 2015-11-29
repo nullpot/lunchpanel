@@ -53,9 +53,13 @@ foreach ((array)$obj as $key => $val) {
 //			print_r($restArray);
 //			echo '</pre>';
 //			if (checkString($restArray->{'id'})) echo $restArray->{'id'} . "\t";
+			$image_url = (checkString($restArray->{'image_url'}->{'shop_image1'}))?(string)$restArray->{'image_url'}->{'shop_image1'}:'';
+			if ($image_url == "") {
+				continue;
+			}
 			$result[$i]['restaurant_name']=(checkString($restArray->{'name'}))?$restArray->{'name'}:'';
 			$result[$i]['restaurant_access']=(checkString($restArray->{'access'}->{'line'}))?(string)$restArray->{'access'}->{'line'}.$restArray->{'access'}->{'station'}:'';
-			$result[$i]['restaurant_image']=(checkString($restArray->{'image_url'}->{'shop_image1'}))?(string)$restArray->{'image_url'}->{'shop_image1'}:'';
+			$result[$i]['restaurant_image']=$image_url;
 //			if (checkString($restArray->{'access'}->{'station'})) echo (string)$restArray->{'access'}->{'station'} . "\t";
 //			if (checkString($restArray->{'access'}->{'walk'})) echo (string)$restArray->{'access'}->{'walk'} . "分\t";
 
