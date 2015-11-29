@@ -28,9 +28,10 @@ $format = "json";
 $lat = $geo['latitude'];
 $lon = $geo['longitude'];
 $range = 1;
+$hit_per_page=100;
 
 //URL組み立て
-$url = sprintf("%s%s%s%s%s%s%s%s%s%s%s", $uri, "?format=", $format, "&keyid=", $acckey, "&latitude=", $lat, "&longitude=", $lon, "&range=", $range);
+$url = sprintf("%s%s%s%s%s%s%s%s%s%s%s%s%s", $uri, "?format=", $format, "&keyid=", $acckey, "&latitude=", $lat, "&longitude=", $lon, "&range=", $range, "&hit_per_page", $hit_per_page);
 //API実行
 $json = file_get_contents($url);
 //取得した結果をオブジェクト化
