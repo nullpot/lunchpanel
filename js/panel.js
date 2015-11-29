@@ -6,7 +6,7 @@ window.onload = function(){
 	var tempPanels = document.querySelectorAll(".divPanelInformations");
 	for(var i=0;i<tempPanels.length;i++){
 		tempPanels[i].addEventListener("click",function(){
-			transferDescription("description.html");
+			transferPage("description.html");
 		},false);
 	}
 
@@ -20,28 +20,4 @@ window.onload = function(){
 // 検索件数を表示する
 function setResultNum(num){
 	document.querySelector("#divResultsNum").textContent = num + "件みつかりました。"
-}
-
-// テストデータです。
-var testObj = {
-	"rName1":{
-		gNavi:{
-			restaurant_name:"rName1",
-			restaurant_access:"rAccess1",
-		},
-		insta:{
-			iTestA:123,
-			iTestB:234,
-		}
-	},
-		"rName2":{
-		gNavi:{
-			restaurant_name:"rName2",
-			restaurant_access:"rAccess2",
-		},
-		insta:{
-			iTestA:1123,
-			iTestB:2234,
-		}
-	},
 }

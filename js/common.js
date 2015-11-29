@@ -27,7 +27,7 @@ function makePanels(jsonData){
 }
 
 // 対象の画面に遷移する
-function transferDescription(targetPage){
+function transferPage(targetPage){
 	// TBD ここでheaderのテキストボックスから値を取得する
 	var titleBoxValue = "aaa";
 	location.href = targetPage + "?" + titleBoxValue;
@@ -43,4 +43,28 @@ function getQueryVariable(variable) {
 		    return pair[1];
 		}
 	}
+}
+
+// テストデータ
+var testObj = {
+	"rName1":{
+		gNavi:{
+			restaurant_name:"rName1",
+			restaurant_access:"rAccess1",
+		},
+		insta:{
+			iTestA:123,
+			iTestB:234,
+		}
+	},
+		"rName2":{
+		gNavi:{
+			restaurant_name:"rName2",
+			restaurant_access:"rAccess2",
+		},
+		insta:{
+			iTestA:1123,
+			iTestB:2234,
+		}
+	},
 }

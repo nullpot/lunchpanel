@@ -1,3 +1,4 @@
+/* panel.html用 */
 #divResultsNum{
 	width:100%;
 	text-align:center;
@@ -23,4 +24,19 @@
 }
 .divPanelInformations:hover{
 	opacity:1;
+}
+
+/* description.html用 */
+#divDetailResult{
+    width:100%;
+    padding:30px;
+    display:flex;
+}
+#divDetailResult>div{
+    width:100%;
+    margin:15px;
+}
+.restaurant_name{
+    font-size:18px;
+    font-weight:bold;
 }
