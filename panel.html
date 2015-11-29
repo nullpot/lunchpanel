@@ -1,17 +1,38 @@
-<!DOCTYPE html>
+<!doctype html>
 <html>
-<head lang="en">
-    <meta charset="UTF-8">
-    <title></title>
-    <link rel="stylesheet" href="css/style.css" type="text/css" />
-    <script type="text/javascript" src="js/jquery-2.1.4.js"></script>
-    <script type="text/javascript" src="js/common.js"></script>
-    <script type="text/javascript" src="js/panel.js"></script>
+<head>
+<meta charset="UTF-8">
+<title>Lunch Panel </title>
+<link href="css/style.css" rel="stylesheet" type="text/css">
+<script type="text/javascript" src="js/common.js"></script>
+<script type="text/javascript" src="js/panel.js"></script>
 </head>
+
 <body>
-	<!-- 仮置きしています。 headerを入れる際に消しましょう。 -->
-	<input type="text" id="inputText" placeholder="ここに条件を入力してください。" />
-	<div id="divResultsNum">xx件みつかりました。</div>
-	<div id="divResultsPanels"></div>
+
+<header class="header">
+    <div class="inner clf"><a class="logo" href="#">Lunch Panel</a> 
+    <!-- end .header -->
+        <div class="serch_box">
+            <form>
+                    <label>
+                        <input type="text" id="search-field" class="serch_text" placeholder="エリアを入力して" name="text" value="" autocomplete="off" aria-label="Search" role="textbox">
+                        <button id="submit_location" type="submit" class="serch_button">探す</button>
+                    </label>
+                </form>
+        </div>
+    </div>
+</header>
+<div class="container">
+	<div class="inner">
+    
+    	<div id="divResultsNum">
+        	<h2 class="ttl02">xx件みつかりました！</h2>
+        </div>
+		<div id="divResultsPanels"></div>
+	</div>
+</div>
+
 </body>
+
 </html>
