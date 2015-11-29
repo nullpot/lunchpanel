@@ -7,11 +7,11 @@
  */
 
 // http://developer.yahoo.co.jp/webapi/map/openlocalplatform/v1/geocoder.html
-$yahoo_app_id = 'dj0zaiZpPW4wdm8zNGxQQ0JFTSZzPWNvbnN1bWVyc2VjcmV0Jng9NDU-'; // アプリケーションID：
-$yahoo_app_secret = 'bc6fdd0ac412d8ce94afee38a8282165f90e72b3'; // シークレット：
-
 function yahoo_geo($address_str)
 {
+	$yahoo_app_id = 'dj0zaiZpPW4wdm8zNGxQQ0JFTSZzPWNvbnN1bWVyc2VjcmV0Jng9NDU-'; // アプリケーションID：
+	$yahoo_app_secret = 'bc6fdd0ac412d8ce94afee38a8282165f90e72b3'; // シークレット：
+
 
 	$addres = urlencode($address_str);
 

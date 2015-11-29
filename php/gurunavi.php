@@ -1,6 +1,13 @@
 <?php
 
 
+require_once('./yahoo.php');
+
+
+$request_add='富山';
+$geo=yahoo_geo($request_add);
+
+
 // ぐるなびAPI
 // http://api.gnavi.co.jp/api/manual/restsearch/
 
@@ -18,8 +25,8 @@ $acckey = '14c383d2e30f47f282bd9b688c62eb22';
 $format = "json";
 //緯度・経度、範囲を変数に入れる
 //緯度経度は日本測地系で日比谷シャンテのもの。範囲はrange=1で300m以内を指定している。
-$lat = 35.670083;
-$lon = 139.763267;
+$lat = $geo['latitude'];
+$lon = $geo['longitude'];
 $range = 1;
 
 //URL組み立て
