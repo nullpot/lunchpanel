@@ -4,7 +4,7 @@
 require_once('./yahoo.php');
 
 
-$request_add='富山';
+$request_add=$_GET['area'];
 $geo=yahoo_geo($request_add);
 
 
@@ -35,30 +35,44 @@ $url = sprintf("%s%s%s%s%s%s%s%s%s%s%s", $uri, "?format=", $format, "&keyid=", $
 $json = file_get_contents($url);
 //取得した結果をオブジェクト化
 $obj = json_decode($json);
-print_r($obj);
+//echo '$obj'.'<br>';
+//print_r($obj);
 //結果をパース
 //トータルヒット件数、店舗番号、店舗名、最寄の路線、最寄の駅、最寄駅から店までの時間、店舗の小業態を出力
+$i=0;
 foreach ((array)$obj as $key => $val) {
 	if (strcmp($key, "total_hit_count") == 0) {
-		echo "total:" . $val . "\n";
+//		echo "total:" . $val . "\n";
 	}
 
 	if (strcmp($key, "rest") == 0) {
 		foreach ((array)$val as $restArray) {
-			if (checkString($restArray->{'id'})) echo $restArray->{'id'} . "\t";
-			if (checkString($restArray->{'name'})) echo $restArray->{'name'} . "\t";
-			if (checkString($restArray->{'access'}->{'line'})) echo (string)$restArray->{'access'}->{'line'} . "\t";
-			if (checkString($restArray->{'access'}->{'station'})) echo (string)$restArray->{'access'}->{'station'} . "\t";
-			if (checkString($restArray->{'access'}->{'walk'})) echo (string)$restArray->{'access'}->{'walk'} . "分\t";
+//			echo '<pre>';
+//			print_r($restArray);
+//			echo '</pre>';
+//			if (checkString($restArray->{'id'})) echo $restArray->{'id'} . "\t";
+			$result[$i]['restaurant_name']=(checkString($restArray->{'name'}))?$restArray->{'name'}:'';
+			$result[$i]['restaurant_access']=(checkString($restArray->{'access'}->{'line'}))?(string)$restArray->{'access'}->{'line'}.$restArray->{'access'}->{'station'}:'';
+//			if (checkString($restArray->{'access'}->{'station'})) echo (string)$restArray->{'access'}->{'station'} . "\t";
+//			if (checkString($restArray->{'access'}->{'walk'})) echo (string)$restArray->{'access'}->{'walk'} . "分\t";
 
 			foreach ((array)$restArray->{'code'}->{'category_name_s'} as $v) {
-				if (checkString($v)) echo $v . "\t";
+				$result[$i]['restaurant_category']=(checkString($v))?$v:'';
 			}
-			echo "\n";
+//			echo "\n";
+			$i++;
 		}
 
 	}
 }
+
+// debug
+//echo '<pre>';
+//print_r($result);
+//echo '</pre>';
+
+$data=json_encode($result);
+echo "[" . $data . "]";
 
 //文字列であるかをチェック
 function checkString($input)
