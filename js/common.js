@@ -15,6 +15,7 @@ function makePanels(originJsonData){
 		var tempInfomations = outerPanel.querySelector(".divPanelInformations");	
 		tempInfomations.setAttribute("key",key);
 		tempInfomations.style.background = "url(" + jsonData[key].restaurant_image + ")";
+		tempInfomations.style.backgroundRepeat = "no-repeat";
 
 		var tempInfoDiv = document.createElement("div");
 		tempInfoDiv.className = "restaurant_name";
