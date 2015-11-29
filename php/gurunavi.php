@@ -55,6 +55,7 @@ foreach ((array)$obj as $key => $val) {
 //			if (checkString($restArray->{'id'})) echo $restArray->{'id'} . "\t";
 			$result[$i]['restaurant_name']=(checkString($restArray->{'name'}))?$restArray->{'name'}:'';
 			$result[$i]['restaurant_access']=(checkString($restArray->{'access'}->{'line'}))?(string)$restArray->{'access'}->{'line'}.$restArray->{'access'}->{'station'}:'';
+			$result[$i]['restaurant_image']=(checkString($restArray->{'image_url'}->{'shop_image1'}))?(string)$restArray->{'image_url'}->{'shop_image1'}:'';
 //			if (checkString($restArray->{'access'}->{'station'})) echo (string)$restArray->{'access'}->{'station'} . "\t";
 //			if (checkString($restArray->{'access'}->{'walk'})) echo (string)$restArray->{'access'}->{'walk'} . "分\t";
 
@@ -74,6 +75,8 @@ foreach ((array)$obj as $key => $val) {
 //echo '</pre>';
 
 $data=json_encode($result);
+header('Access-Control-Allow-Origin: *');
+header("Content-Type: application/json; charset=utf-8");
 echo "[" . $data . "]";
 
 //文字列であるかをチェック
