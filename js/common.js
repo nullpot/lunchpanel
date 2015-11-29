@@ -28,9 +28,7 @@ function makePanels(jsonData){
 
 // 対象の画面に遷移する
 function transferPage(targetPage){
-	// TBD ここでheaderのテキストボックスから値を取得する
-	var titleBoxValue = "aaa";
-	location.href = targetPage + "?" + titleBoxValue;
+	location.href = targetPage + "?searchCondition=" + document.querySelector("#search-field").value;
 }
 
 // クエリの値を取得する
