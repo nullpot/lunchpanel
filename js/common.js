@@ -13,6 +13,8 @@ function makePanels(originJsonData){
 		outerPanel.className = "divResultPanel";
 		outerPanel.innerHTML = `<div class="divPanelInformations"></div>`;
 		var tempInfomations = outerPanel.querySelector(".divPanelInformations");	
+		tempInfomations.setAttribute("key",key);
+		tempInfomations.style.background = "url(" + jsonData[key].restaurant_image + ")";
 
 		var tempInfoDiv = document.createElement("div");
 		tempInfoDiv.className = "restaurant_name";

@@ -17,14 +17,14 @@ window.onload = function(){
 			// パネルに画面遷移のイベントをadd
 			var tempPanels = document.querySelectorAll(".divPanelInformations");
 			for(var i=0;i<tempPanels.length;i++){
-				tempPanels[i].addEventListener("click",function(){
-					transferPage("description.html");
+				tempPanels[i].addEventListener("click",function(event){
+                    location.href = "description.html?searchCondition=" + document.querySelector("#search-field").value + "&key=" + event.target.attributes.key.value;
 				},false);
 			}
 		    // クエリから全画面の検索情報を取得してテキスト情報に入力する
 		    document.querySelector("#search-field").value = getQueryVariable("searchCondition") || "";
 
-		    setResultNum(response.length);
+		    setResultNum(response[0].length);
         })
         // ・サーバからステータスコード400以上が返ってきたとき
         // ・ステータスコードは正常だが、dataTypeで定義したようにパース出来なかったとき
