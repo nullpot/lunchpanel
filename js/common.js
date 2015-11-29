@@ -3,23 +3,25 @@
  */
 
 // 取得した情報を元にpanelを作成
-function makePanels(jsonData){
+function makePanels(originJsonData){
 	// TBD 雑なので後でちゃんと作り直す
 	// TBD object構造が合っているか確認
+
+	var jsonData = originJsonData[0];
 	for(var key in jsonData){
 		var outerPanel = document.createElement("div");
 		outerPanel.className = "divResultPanel";
 		outerPanel.innerHTML = `<div class="divPanelInformations"></div>`;
-		var tempInfomations = outerPanel.querySelector(".divPanelInformations");
+		var tempInfomations = outerPanel.querySelector(".divPanelInformations");	
 
 		var tempInfoDiv = document.createElement("div");
 		tempInfoDiv.className = "restaurant_name";
-		tempInfoDiv.innerText = jsonData[key].gNavi.restaurant_name;
+		tempInfoDiv.innerText = jsonData[key].restaurant_name;
 		tempInfomations.appendChild(tempInfoDiv);
 
 		var tempInfoDiv = document.createElement("div");
 		tempInfoDiv.className = "restaurant_access";
-		tempInfoDiv.innerText = jsonData[key].gNavi.restaurant_access;
+		tempInfoDiv.innerText = jsonData[key].restaurant_access;
 		tempInfomations.appendChild(tempInfoDiv);
 
 		document.querySelector("#divResultsPanels").appendChild(outerPanel);    			
