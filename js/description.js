@@ -6,7 +6,7 @@ window.onload = function(){
 	var tempPanels = document.querySelectorAll(".divPanelInformations");
 
     // クエリから全画面の検索情報を取得してテキスト情報に入力する
-    document.querySelector("#inputText").value = getQueryVariable("searchCondition") || "";
+    document.querySelector("#search-field").value = getQueryVariable("searchCondition") || "";
 
     // 取得した情報を元に詳細の説明を作成
     makeDetailInfo(testObj["rName1"]);

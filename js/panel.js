@@ -11,7 +11,7 @@ window.onload = function(){
 	}
 
     // クエリから全画面の検索情報を取得してテキスト情報に入力する
-    document.querySelector("#inputText").value = getQueryVariable("searchCondition") || "";
+    document.querySelector("#search-field").value = getQueryVariable("searchCondition") || "";
 
     // TBD objectの取得件数に引数を置き換える
     setResultNum(12);
@@ -19,5 +19,5 @@ window.onload = function(){
 
 // 検索件数を表示する
 function setResultNum(num){
-	document.querySelector("#divResultsNum").textContent = num + "件みつかりました。"
+	document.querySelector("#divResultsNum>h2").textContent = num + "件みつかりました。"
 }
